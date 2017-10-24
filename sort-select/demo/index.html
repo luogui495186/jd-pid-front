@@ -1,0 +1,128 @@
+<!--主从表插件事例-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/sort-select.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/sort-select.css"/>
+    </head>
+    <body>
+        <div id="div-split"></div>
+        <div id="div-ui">
+            <div class="container-fluid" style="position:relative;">
+                点击选择<br/>占位符，占位符，占位符
+                <select id="sort-select" multiple="multiple" class="sort-select-hidden2">
+                    <option value="1" 
+                        html="<input type='radio' name='radio1' id='radio11' value='radioValue11'/> <label for='radio11'>同意</label><input type='radio' name='radio1' id='radio12' value='radioValue12'/><label for='radio12'>不同意</label>"
+                    >
+                        javascript
+                    </option>
+                    
+                    <option value="2"
+                        html="<input type='radio' name='radio2' id='radio21' value='radioValue21'/> <label for='radio21'>同意</label><input type='radio' name='radio2' id='radio22' value='radioValue22'/><label for='radio22'>不同意</label>"
+                    >
+                        java
+                    </option>
+                    <option value="3"
+                        html="<input type='radio' name='radio3' id='radio31' value='radioValue31'/> <label for='radio31'>同意</label><input type='radio' name='radio3' id='radio32' value='radioValue32'/><label for='radio32'>不同意</label>"
+                    >
+                        php
+                    </option>
+                    <option value="4"
+                        html="<input type='radio' name='radio4' id='radio41' value='radioValue41'/> <label for='radio41'>同意</label><input type='radio' name='radio4' id='radio42' value='radioValue42'/><label for='radio42'>不同意</label>"
+                    >
+                        html
+                    </option>
+                    
+                </select>
+                <select id="sort-select2" class="sort-select-hidden2">
+                    <option value="1" disabled="disabled"
+                        html="<input type='radio' name='radio1' id='radio11' value='radioValue11'/> <label for='radio11'>同意</label><input type='radio' name='radio1' id='radio12' value='radioValue12'/><label for='radio12'>不同意</label>"
+                    >
+                        javascript
+                    </option>
+                    
+                    <option value="2" selected="selected"
+                        html="<input type='radio' name='radio2' id='radio21' value='radioValue21'/> <label for='radio21'>同意</label><input type='radio' name='radio2' id='radio22' value='radioValue22'/><label for='radio22'>不同意</label>"
+                    >
+                        java
+                    </option>
+                    <option value="3"
+                        html="<input type='radio' name='radio3' id='radio31' value='radioValue31'/> <label for='radio31'>同意</label><input type='radio' name='radio3' id='radio32' value='radioValue32'/><label for='radio32'>不同意</label>"
+                    >
+                        php
+                    </option>
+                    <option value="4">
+                        html
+                    </option>
+                    
+                </select>
+            </div>
+            <div style="margin-top:50px;">
+                <button id='test1'>返回内容</button>
+				<button id='test2'>变更dom</button>
+                <button id='test3'>设置不可用</button>
+				<button id='test4'>设置可用</button>
+				
+				<button id='test5'>设置选中</button>
+				<button id='test6'>设置是不选中</button>
+                
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+    $(function(){
+    var opt = {
+            width:"240px",
+            buttonTitle:'请选择',
+            buttonWidth:"150px",
+            numberDisplayed:5,
+            sort:true,
+            onChange:function(){
+                        //console.info("user event");
+                    }
+        };
+    var temp = $("#sort-select").sortSelect(opt);
+    var temp2 = $("#sort-select2").sortSelect(opt);
+
+    $("#test1").click(function(){
+        var v = $("#sort-select").val();
+        console.info(v);
+        var v2 = temp.getDom();
+        console.info(v2);
+    });
+
+	
+    $("#test2").click(function(){
+        var data = {"1":"<input type='checkbox' value='5'/>"};
+        temp.setDomData(data);
+    });
+	
+    $("#test3").click(function(){
+        var data = [3,4];
+        temp.setDisabled(data);
+    });
+	
+	$("#test4").click(function(){
+        var data = [3];
+        temp.setEnabled(data);
+    });
+	
+	$("#test5").click(function(){
+        var data = [3,4];
+        temp.setSelected(data);
+    });
+	
+	$("#test6").click(function(){
+        var data = [3];
+        temp.setUnSelected(data);
+    });
+
+});
+</script>

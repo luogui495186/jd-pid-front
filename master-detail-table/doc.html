@@ -1,0 +1,156 @@
+<!--主从表插件事例-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="../../js/jquery-2.1.4.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="master-detail-table.js"></script>
+        <script src="../../js/codemirror/codemirror.js"></script>
+        <script src="../../js/codemirror/javascript.js"></script>
+        <script src="../../js/codemirror/xml.js"></script>
+        <script src="../../js/codemirror/active-line.js"></script>
+        <script src="../../js/codemirror/matchbrackets.js"></script>
+        <link rel="stylesheet" href="../../css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="../../css/demo.css"/>
+        <link rel="stylesheet" href="../../css/codemirror.css"/>
+        <script src="../js/demo.js"></script>
+    </head>
+    <body>
+        <nav id="nav-demo">
+            <a div-id="div-ui" class="a-active" href="#none">运行效果</a>
+            <a div-id="div-js" href="#none">JS代码</a>
+            <a div-id="div-html" href="#none">HTML代码</a>
+            <a div-id="div-doc" href="#none">参数说明</a>
+            <a div-id="" target="_blank" href="../js/tool/master-detail-table.js">插件下载</a>
+        </nav>
+        <div id="div-split"></div>
+        <div id="div-ui"></div>
+        <div id="div-js">
+            <textarea id="text-js">
+$(function(){
+    var title = ["订单号","订单总金额","订单时间","下单人","支付方式"];
+    var detailTitle = ["物品名称","物品编号","物品金额","购买数量"];
+    var data = [
+        {"data":["20170802000001","560","2017-08-02","张三","在线支付"],
+        "detail":[["手机","0001","200","1"],["电饭煲","0002","260","1"]]},
+        {"data":["20170802000002","260","2017-08-03","李四","货到付款"],
+        "detail":[["手机","0001","200","1"],["电饭煲","0002","260","1"]]}
+    ];
+    var opt = {
+            title:title,
+            detailTitle:detailTitle,
+            data:data
+        };
+    $("#div-ui").masterDetailTable(opt);
+});
+            </textarea>
+        </div>
+        <div id="div-html">
+            <textarea id="text-html">
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="../js/jquery-2.1.4.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/tool/master-detail-table.js"></script>
+        <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    </head>
+    <body>
+        <div id="div-ui"></div>
+    </body>
+</html>
+<script></script>
+            </textarea>
+        </div>
+        <div id="div-doc">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>参数名称</th>
+                        <th>类型</th>
+                        <th style="width:50px;">必填</th>
+                        <th>默认值</th>
+
+                        <th>示例值</th>
+                        <th>参数说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>title</td>
+                        <td>Array</td>
+                        <td>是</td>
+                        <td></td>
+
+                        <td>["订单号","订单总金额","订单时间","下单人","支付方式"]</td>
+                        <td>主表表头</td>
+                    </tr>
+                    <tr>
+                        <td>detailTitle</td>
+                        <td>Array</td>
+                        <td>是</td>
+                        <td></td>
+
+                        <td>["物品名称","物品编号","物品金额","购买数量"]</td>
+                        <td>从表表头</td>
+                    </tr>
+                    <tr>
+                        <td>showRowNumber</td>
+                        <td>boolean</td>
+                        <td>否</td>
+                        <td>true</td>
+
+                        <td>true/false</td>
+                        <td>是否显示行号，默认显示</td>
+                    </tr>
+                    <tr>
+                        <td>tableClass</td>
+                        <td>string</td>
+                        <td>否</td>
+                        <td>table table-bordered table-hover</td>
+
+                        <td>table table-bordered table-hover</td>
+                        <td>表格的样式class，默认采用bootstrap的样式</td>
+                    </tr>
+                    <tr>
+                        <td>data</td>
+                        <td>Array</td>
+                        <td>是</td>
+                        <td></td>
+
+                        <td>[
+                                {"data":["20170802000001","560","2017-08-02","张三","在线支付"],
+                                "detail":[["手机","0001","200","1"],["电饭煲","0002","260","1"]]},
+                                {"data":["20170802000002","260","2017-08-03","李四","货到付款"],
+                                "detail":[["手机","0001","200","1"],["电饭煲","0002","260","1"]]}
+                            ]
+                        </td>
+                        <td>主从表数据</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
+
+<script>
+    $(function(){
+        var title = ["订单号","订单总金额","订单时间","下单人","支付方式"];
+        var detailTitle = ["物品名称","物品编号","物品金额","购买数量"];
+        var data = [
+            {"data":["20170802000001","560","2017-08-02","张三","在线支付"],
+            "detail":[["手机","0001","200","1"],["电饭煲","0002","260","1"]]},
+            {"data":["20170802000002","260","2017-08-03","李四","货到付款"],
+            "detail":[["手机","0001","200","1"],["电饭煲","0002","260","1"]]}
+        
+        ];
+        var opt = {
+                title:title,
+                detailTitle:detailTitle,
+                data:data
+            };
+        $("#div-ui").masterDetailTable(opt);
+    });
+</script>

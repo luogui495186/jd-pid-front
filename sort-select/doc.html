@@ -1,0 +1,274 @@
+<!--主从表插件事例-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="../../js/jquery-2.1.4.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="sort-select.js"></script>
+        <script src="../../js/codemirror/codemirror.js"></script>
+        <script src="../../js/codemirror/javascript.js"></script>
+        <script src="../../js/codemirror/xml.js"></script>
+        <script src="../../js/codemirror/active-line.js"></script>
+        <script src="../../js/codemirror/matchbrackets.js"></script>
+        <script src="../../js/jquery-ui.js"></script>
+        <link rel="stylesheet" href="../../css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="../../css/demo.css"/>
+        <link rel="stylesheet" href="../../css/codemirror.css"/>
+        <link rel="stylesheet" href="sort-select.css"/>
+        <script src="../../js/demo.js"></script>
+    </head>
+    <body>
+        <nav id="nav-demo">
+            <a div-id="div-ui" class="a-active" href="#none">运行效果</a>
+            <a div-id="div-js" href="#none">JS代码</a>
+            <a div-id="div-html" href="#none">HTML代码</a>
+            <a div-id="div-doc" href="#none">参数说明</a>
+            <a div-id="" target="_blank" href="../js/tool/master-detail-table.js">插件下载</a>
+        </nav>
+        <div id="div-split"></div>
+        <div id="div-ui">
+            <div class="container-fluid" style="position:relative;height:30px;">
+                点击选择<br/>占位符，占位符，占位符
+                
+                <select id="sort-select" multiple="multiple" class="sort-select-hidden2">
+                    <option value="1" 
+                        html="<input type='radio' name='radio1' id='radio11' value='radioValue11'/> <label for='radio11'>同意</label><input type='radio' name='radio1' id='radio12' value='radioValue12'/><label for='radio12'>不同意</label>"
+                    >
+                        javascript
+                    </option>
+                    
+                    <option value="2"
+                        html="<input type='radio' name='radio2' id='radio21' value='radioValue21'/> <label for='radio21'>同意</label><input type='radio' name='radio2' id='radio22' value='radioValue22'/><label for='radio22'>不同意</label>"
+                    >
+                        java
+                    </option>
+                    <option value="3"
+                        html="<input type='radio' name='radio3' id='radio31' value='radioValue31'/> <label for='radio31'>同意</label><input type='radio' name='radio3' id='radio32' value='radioValue32'/><label for='radio32'>不同意</label>"
+                    >
+                        php
+                    </option>
+                    <option value="4"
+                        html="<input type='radio' name='radio4' id='radio41' value='radioValue41'/> <label for='radio41'>同意</label><input type='radio' name='radio4' id='radio42' value='radioValue42'/><label for='radio42'>不同意</label>"
+                    >
+                        html
+                    </option>
+                    
+                </select>
+                <select id="sort-select2" multiple="multiple" class="sort-select-hidden2">
+                    <option value="1" 
+                        html="<input type='radio' name='radio1' id='radio11' value='radioValue11'/> <label for='radio11'>同意</label><input type='radio' name='radio1' id='radio12' value='radioValue12'/><label for='radio12'>不同意</label>"
+                    >
+                        javascript
+                    </option>
+                    
+                    <option value="2"
+                        html="<input type='radio' name='radio2' id='radio21' value='radioValue21'/> <label for='radio21'>同意</label><input type='radio' name='radio2' id='radio22' value='radioValue22'/><label for='radio22'>不同意</label>"
+                    >
+                        java
+                    </option>
+                    <option value="3"
+                        html="<input type='radio' name='radio3' id='radio31' value='radioValue31'/> <label for='radio31'>同意</label><input type='radio' name='radio3' id='radio32' value='radioValue32'/><label for='radio32'>不同意</label>"
+                    >
+                        php
+                    </option>
+                    <option value="4"
+                        html="<input type='radio' name='radio4' id='radio41' value='radioValue41'/> <label for='radio41'>同意</label><input type='radio' name='radio4' id='radio42' value='radioValue42'/><label for='radio42'>不同意</label>"
+                    >
+                        html
+                    </option>
+                    
+                </select>
+            </div>
+			
+			<button style="margin-top:50px;" id='btn-test'>test return</button>
+        </div>
+        <div id="div-js">
+            <textarea id="text-js">
+$(function(){
+        var data = [
+            {'id':1,'name':"javascript"},
+            {'id':2,'name':"java"},
+            {'id':1,'name':"php"},
+            {'id':1,'name':"html"},
+            {'id':1,'name':"c"},
+            {'id':1,'name':"go"},
+            {'id':1,'name':"c#"},
+            {'id':1,'name':"vb"},
+            {'id':1,'name':"python"},
+            {'id':1,'name':"c++"}
+        ];
+
+		var html = "<input name='name1' type='radio'/>同意&nbsp;<input name='name1' type='radio'/>不同意";
+        var opt = {
+                multiple:true,
+                data:data,
+				html : html,
+                width:"240px",
+                sort:true,
+                buttonTitle:'请选择',
+                buttonWidth:"auto",
+                numberDisplayed:5
+            };
+        
+        var temp = $("#sort-select").sortSelect(opt);
+		
+		$("#btn-test").click(function(){
+			var test = temp.getDom();
+			console.info(test);
+		});
+    });
+            </textarea>
+        </div>
+        <div id="div-html">
+            <textarea id="text-html">
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="../js/jquery-2.1.4.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/tool/sort-select/sort-select.js"></script>
+        <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="../js/tool/sort-select/sort-select.css"/>
+    </head>
+    <body>
+        <div class="container-fluid" style="position:relative;height:30px;">
+            点击选择<br/>
+            <input class="form-control" style="width:200px;" id="sort-select"/>
+			
+        </div>
+    </body>
+</html>
+<script></script>
+            </textarea>
+        </div>
+        <div id="div-doc">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>参数名称</th>
+                        <th>类型</th>
+                        <th style="width:50px;">必填</th>
+                        <th>默认值</th>
+
+                        <th>示例值</th>
+                        <th>参数说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>multiple</td>
+                        <td>boolean</td>
+                        <td>否</td>
+                        <td>false</td>
+
+                        <td>true/false</td>
+                        <td>是否多选</td>
+                    </tr>
+                    <tr>
+                        <td>width</td>
+                        <td>string</td>
+                        <td>否</td>
+                        <td>240px</td>
+
+                        <td>"240px"</td>
+                        <td>下拉宽度</td>
+                    </tr>
+                    <tr>
+                        <td>data</td>
+                        <td>Array</td>
+                        <td>是</td>
+                        <td></td>
+
+                        <td>[
+                                {'id':1,'name':"javascript"},
+                                {'id':2,'name':"java"}
+                            ]</td>
+                        <td>下拉菜单数据</td>
+                    </tr>
+                    <tr>
+                        <td>button</td>
+                        <td>Array</td>
+                        <td>否</td>
+                        <td></td>
+
+                        <td>[
+                                {'clickEvent':function(){},'name':'确定','class':'btn btn-default btn-sm'},
+                                {'clickEvent':function(){},'name':'取消','class':'btn btn-default btn-sm'}
+                            ]</td>
+                        <td>自定义按钮</td>
+                    </tr>
+                    <tr>
+                        <td>sort</td>
+                        <td>boolean</td>
+                        <td>否</td>
+                        <td>false</td>
+
+                        <td>true/false</td>
+                        <td>是否可多选</td>
+                    </tr>
+                    <tr>
+                        <td>buttonTitle</td>
+                        <td>string</td>
+                        <td>否</td>
+                        <td>请选择</td>
+
+                        <td>请选择</td>
+                        <td>按钮标题</td>
+                    </tr>
+                    <tr>
+                        <td>buttonWidth</td>
+                        <td>string</td>
+                        <td>否</td>
+                        <td>auto</td>
+
+                        <td>100px</td>
+                        <td>按钮宽度</td>
+                    </tr>
+                    <tr>
+                        <td>numberDisplayed</td>
+                        <td>int</td>
+                        <td>否</td>
+                        <td>4</td>
+
+                        <td>5</td>
+                        <td>按钮显示选择内容数量</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
+
+<script>
+    $(function(){
+        var opt = {
+                multiple:true,
+                width:"240px",
+                buttonTitle:'请选择',
+                buttonWidth:"150px",
+                numberDisplayed:5,
+                sort:true,
+                onChange:function(){
+                            //console.info("user event");
+                        }
+            };
+        var temp = $("#sort-select").sortSelect(opt);
+        var temp2 = $("#sort-select2").sortSelect(opt);
+
+        $("#btn-test").click(function(){
+            var v = $("#sort-select").val();
+            console.info(v);
+            var v2 = temp.getDom();
+            console.info(v2);
+            var data = {"1":"<input type='checkbox' value='5'/>"};
+            temp.setDomData(data);
+            temp.setSelectKey([1,3,4]);
+            var v = $("#sort-select").val();
+            console.info(v);
+            var v2 = temp.getDom();
+            console.info(v2);
+        });
+    });
+</script>

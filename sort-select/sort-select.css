@@ -1,0 +1,39 @@
+.sort-select-ul{
+    list-style: none;
+    padding:2px 0 2px 0;
+    position: absolute;
+    border-radius: 4px;
+    border:1px solid #ccc;
+    margin-top:2px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    background-color:#fff;
+	display:none;
+}
+.sort-select-ul li{
+    height:35px;
+    padding:0 6px 0 6px;
+}
+.sort-select-ul li:hover{
+    background-color:#eee;
+}
+.sort-select-ul-btn-group{
+    float:right;
+}
+.sort-select-ul-user-dom{
+	float:right;
+}
+.sort-select-main{
+	position:relative;
+	height:30px;
+	display:inline-block;
+}
+.sort-select-btn{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	display:inline-block;
+}
+.sort-select-hidden{
+    display:none;
+}

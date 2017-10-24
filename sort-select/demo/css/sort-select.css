@@ -1,0 +1,56 @@
+/*下拉内容*/
+.sort-select-content{
+	position: absolute;
+	display:none;
+	margin-top:2px;
+}
+.sort-select-ul{
+    list-style: none;
+    padding:2px 0 2px 0;
+    --position: absolute;
+    border-radius: 4px;
+    border:1px solid #ccc;
+    
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+	border-radius-right-top:none;
+    background-color:#fff;
+	--display:none;
+	float:left;
+	
+}
+.sort-select-ul li{
+    height:35px;
+    padding:0 6px 0 6px;
+}
+.sort-select-ul li:hover{
+    background-color:#eee;
+}
+
+.sort-select-ul .disabled{
+    cursor: not-allowed;
+    
+    background-color:transparent !important;
+    color:#777;
+}
+
+.sort-select-ul-btn-group{
+    float:right;
+}
+.sort-select-ul-user-dom{
+	float:right;
+}
+.sort-select-main{
+	position:relative;
+	height:30px;
+	display:inline-block;
+}
+.sort-select-btn{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	display:inline-block;
+}
+.sort-select-hidden{
+    display:none;
+}
